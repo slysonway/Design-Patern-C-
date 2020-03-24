@@ -6,14 +6,6 @@ namespace Kebab
 {
     public class Kebab
     {
-        public enum Meat
-        {
-            Kebab, Chicken, Fish, Shrimp, Steak
-        }
-        public enum Sauce
-        {
-            Algerian, Samourai, Blanche, BBQ, Ketchup, Mayo
-        }
         private bool salad { get; set; }
         private bool tomato { get; set; }
         private bool onion { get; set; }
@@ -60,6 +52,11 @@ namespace Kebab
             }
             
             return this;
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(salad)}: {salad}, {nameof(tomato)}: {tomato}, {nameof(onion)}: {onion}, {nameof(meat)}: {string.Join(",", meat)}, {nameof(sauce)}: {string.Join(",", sauce)}, {nameof(cheese)}: {cheese}";
         }
     }
 }
