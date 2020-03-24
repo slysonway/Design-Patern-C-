@@ -1,16 +1,22 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Kebab
 {
     public class Kebab
     {
+        public enum Meat
+        {
+            Kebab, Chicken, Poisson, Shrimp, Steak
+        }
         private bool salad { get; set; }
         private bool tomato { get; set; }
         private bool onion { get; set; }
-        private bool meat { get; set; }
+        private List<Meat> meat { get; set; }
         
 
-        public Kebab(bool salad, bool tomato, bool onion, bool meat)
+        public Kebab(bool salad, bool tomato, bool onion, List<Meat> meat)
         {
             this.salad = salad;
             this.tomato = tomato;
@@ -18,9 +24,14 @@ namespace Kebab
             this.meat = meat;
         }
         
-        Boolean isVegetarian()
+        public bool isVegetarian()
         {
-            return meat;
+            return !meat.Any();
+        }
+
+        public bool isPescetarian()
+        {
+            return !meat.Contains(Meat.Chicken) && !meat.Contains(Meat.Steak) && !meat.Contains(Meat.Kebab);
         }
     }
 }
