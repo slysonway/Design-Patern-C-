@@ -8,20 +8,26 @@ namespace Kebab
     {
         public enum Meat
         {
-            Kebab, Chicken, Poisson, Shrimp, Steak
+            Kebab, Chicken, Fish, Shrimp, Steak
+        }
+        public enum Sauce
+        {
+            Algerian, Samourai, Blanche, BBQ, Ketchup, Mayo
         }
         private bool salad { get; set; }
         private bool tomato { get; set; }
         private bool onion { get; set; }
         private List<Meat> meat { get; set; }
+        private List<Sauce> sauce { get; set; }
         
 
-        public Kebab(bool salad, bool tomato, bool onion, List<Meat> meat)
+        public Kebab(bool salad, bool tomato, bool onion, List<Meat> meat, List<Sauce> sauce)
         {
             this.salad = salad;
             this.tomato = tomato;
             this.onion = onion;
             this.meat = meat;
+            this.sauce = sauce;
         }
         
         public bool isVegetarian()
